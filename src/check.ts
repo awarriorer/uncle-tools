@@ -1,31 +1,70 @@
-import regexp from '@/regexp';
-
 export default {
-    isString(): boolean{
-        return false;
+
+    is(checkVal: any, expectation: string): boolean{
+        return Object.prototype.toString.call(checkVal) === `[object ${expectation}]`;
     },
 
-    isNumber(): boolean{
-        return false;
+    isString(str: any): boolean {
+        return typeof str === 'string';
+    },
+
+    isNumber(num: any): boolean {
+        return typeof num === 'number';
     },
     
-    isBoolean(): boolean{
-        return false;
+    isBoolean(bool: any): boolean {
+        return typeof bool === 'boolean';
     },
 
-    isUndefined(): boolean{
-        return false;
+    isUndefined(undef: any): boolean {
+        return typeof undef === 'boolean';
     },
 
-    isFunction(): boolean{
-        return false;
+    isFunction(fun: any): boolean {
+        return this.is(fun, 'Function');
     },
 
-    isObject(): boolean{
-        return false;
+    isObject(obj: any): boolean {
+        return this.is(obj, 'Function');
     },
-    
-    isArray(): boolean{
-        return false;
+
+    isArray(arr: any): boolean {
+        return this.is(arr, 'Array');
     },
+
+    isDate(arr: any): boolean {
+        return this.is(arr, 'Date');
+    },
+
+    isRegExp(reg: any): boolean {
+        return this.is(reg, 'RegExp');
+    },
+
+    isError(err: any): boolean {
+        return this.is(err, 'Error');
+    },
+
+    isMath(math: any): boolean {
+        return this.is(math, 'Math');
+    },
+
+    isJSON(json: any): boolean {
+        return this.is(json, 'Json');
+    },
+
+    isPromise(promise: any): boolean {
+        return this.is(promise, 'Promise');
+    },
+
+    isMap(map: any): boolean {
+        return this.is(map, 'Map');
+    },
+
+    isSet(set: any): boolean {
+        return this.is(set, 'Set');
+    },
+
+    isArguments(arg: any): boolean {
+        return this.is(arg, 'Arguments');
+    }
 }
