@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "lib": ["dom", "es2015"],
-    "allowJs": true,
-    "sourceMap": true,
-    "removeComments": true,
-    "importHelpers": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "baseUrl": "./",
-    "paths": {
-        "@/*":[
-            "src/*"
-        ]
-    },                           
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["dom", "es2015"],
+        "allowJs": true,
+        "sourceMap": true,
+        "removeComments": true,
+        "importHelpers": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*":[
+                "src/*"
+            ]
+        },                           
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
     },
     "include": ["src/*", "src/**/*"],
     "exclude": ["node_modules", "dist"]

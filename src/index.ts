@@ -1,7 +1,19 @@
 import regexp from '@/regexp';
 import check from '@/check';
+import date from '@/date';
+import cookie from '@/cookie';
+import location from '@/location';
+import logger from '@/logger';
+import type from '@/type';
+import util from '@/util';
 
 export default {
     regexp,
-    check
+    check,
+    date,
+    cookie,
+    location,
+    logger,
+    type,
+    util
 };

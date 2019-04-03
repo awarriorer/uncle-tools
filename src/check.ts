@@ -1,70 +1,217 @@
+import regexp from '@/regexp';
+
+let stateCfg = {
+    error: 0,
+    success: 1,
+    empty: 2
+}
+
 export default {
+    isEmpty(str: string, name: string = '该项'): Object {
 
-    is(checkVal: any, expectation: string): boolean{
-        return Object.prototype.toString.call(checkVal) === `[object ${expectation}]`;
+        let status = str === '' ? stateCfg.empty : stateCfg.success;
+
+        return {
+            status,
+            warning: ''
+        }
     },
 
-    isString(str: any): boolean {
-        return typeof str === 'string';
-    },
+    isEmail(str: string, name: string = '邮箱'): Object {
+        let reg = regexp.email;
 
-    isNumber(num: any): boolean {
-        return typeof num === 'number';
-    },
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
     
-    isBoolean(bool: any): boolean {
-        return typeof bool === 'boolean';
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isUndefined(undef: any): boolean {
-        return typeof undef === 'boolean';
+    isPhone(str: string, name: string = '手机号'): Object {
+        let reg = regexp.phone;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isFunction(fun: any): boolean {
-        return this.is(fun, 'Function');
+    isFixedPhone(str: string, name: string = '座机号码'): Object {
+        let reg = regexp.fixedPhone;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isObject(obj: any): boolean {
-        return this.is(obj, 'Function');
+    isIDNumber(str: string, name: string = '身份证号'): Object {
+        let reg = regexp.iDNumber;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isArray(arr: any): boolean {
-        return this.is(arr, 'Array');
+    isIP(str: string, name: string = 'IP地址'): Object {
+        let reg = regexp.ip;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isDate(arr: any): boolean {
-        return this.is(arr, 'Date');
+    isLink(str: string, name: string = '链接'): Object {
+        let reg = regexp.link;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isRegExp(reg: any): boolean {
-        return this.is(reg, 'RegExp');
+    isAccount(str: string, name: string = '帐号'): Object {
+        let reg = regexp.account;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isError(err: any): boolean {
-        return this.is(err, 'Error');
+    isPassword(str: string, name: string = '密码'): Object {
+        let reg = regexp.account;
+
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
     },
 
-    isMath(math: any): boolean {
-        return this.is(math, 'Math');
-    },
+    isSpecialCharacters(str: string, name: string = '该项'): Object {
+        let reg = regexp.specialCharacters;
 
-    isJSON(json: any): boolean {
-        return this.is(json, 'Json');
-    },
-
-    isPromise(promise: any): boolean {
-        return this.is(promise, 'Promise');
-    },
-
-    isMap(map: any): boolean {
-        return this.is(map, 'Map');
-    },
-
-    isSet(set: any): boolean {
-        return this.is(set, 'Set');
-    },
-
-    isArguments(arg: any): boolean {
-        return this.is(arg, 'Arguments');
-    }
+        if (!str || str.length <= 0) {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空！`,
+            }
+        }
+    
+        if (!reg.test(str)) {
+            return {
+                state: stateCfg.error,
+                warning: `${name}格式不正确！`,
+            }
+        } else {
+            return {
+                state: stateCfg.success,
+            }
+        }
+    }    
 }

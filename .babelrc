@@ -1,10 +1,10 @@
 {
     "presets": [
-      ["@babel/preset-env", {
-        "modules": "commonjs"
-      }]
+        ["@babel/preset-env", {
+            "modules": false
+        }]
     ],
     "plugins": [
-      "@babel/plugin-transform-runtime"
+        "@babel/plugin-transform-runtime"
     ]
 }

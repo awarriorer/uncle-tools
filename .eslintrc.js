@@ -78,7 +78,6 @@ module.exports = {
         "no-alert": 0,
         // "no-console": 2,
 
-
         /**
          * 编码风格 
          */
