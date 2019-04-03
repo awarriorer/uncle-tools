@@ -36,7 +36,7 @@ export default {
             uri.port = (uri.protocol === 'https' ? 443 : 80);
         } else {
             uri.port = parseInt(uri.port);
-        }
+        };
 
         return uri;
     },
@@ -54,14 +54,14 @@ export default {
         
         queryArr.forEach((strItem: string) => {
             let item = strItem.split('=');
-            queryObj[item[0]] = item[1]
-        })
+            queryObj[item[0]] = item[1];
+        });
 
         if(name){
             return queryObj[name];
         }else{
             return queryObj;
-        }
+        };
     },
 
     /**
@@ -89,4 +89,4 @@ export default {
 
         return urlObj.host !== compObj.host || urlObj.port !== compObj.port || urlObj.protocol !== compObj.protocol;
     }
-}
+};

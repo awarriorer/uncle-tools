@@ -47,4 +47,4 @@ export default {
 
         return `${number.getLen(minute, 2)}:${number.getLen(second, 2)}`;
     }
-}
+};

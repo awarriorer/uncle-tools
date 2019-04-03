@@ -4,17 +4,20 @@ let stateCfg = {
     error: 0,
     success: 1,
     empty: 2
-}
+};
 
 export default {
     isEmpty(str: string, name: string = '该项'): Object {
-
-        let status = str === '' ? stateCfg.empty : stateCfg.success;
-
-        return {
-            status,
-            warning: ''
-        }
+        if (str === '') {
+            return {
+                state: stateCfg.empty,
+                warning: `${name}为空`,
+            };
+        } else {
+            return {
+                state: stateCfg.success,
+            };
+        };
     },
 
     isEmail(str: string, name: string = '邮箱'): Object {
@@ -24,19 +27,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isPhone(str: string, name: string = '手机号'): Object {
@@ -46,19 +49,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isFixedPhone(str: string, name: string = '座机号码'): Object {
@@ -68,19 +71,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isIDNumber(str: string, name: string = '身份证号'): Object {
@@ -90,19 +93,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isIP(str: string, name: string = 'IP地址'): Object {
@@ -112,19 +115,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isLink(str: string, name: string = '链接'): Object {
@@ -134,19 +137,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isAccount(str: string, name: string = '帐号'): Object {
@@ -156,19 +159,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isPassword(str: string, name: string = '密码'): Object {
@@ -178,19 +181,19 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     },
 
     isSpecialCharacters(str: string, name: string = '该项'): Object {
@@ -200,18 +203,18 @@ export default {
             return {
                 state: stateCfg.empty,
                 warning: `${name}为空！`,
-            }
-        }
+            };
+        };
     
         if (!reg.test(str)) {
             return {
                 state: stateCfg.error,
                 warning: `${name}格式不正确！`,
-            }
+            };
         } else {
             return {
                 state: stateCfg.success,
-            }
-        }
+            };
+        };
     }    
-}
+};
