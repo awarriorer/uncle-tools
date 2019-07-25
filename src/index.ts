@@ -6,6 +6,7 @@ import location from '@/location';
 import logger from '@/logger';
 import type from '@/type';
 import util from '@/util';
+import string from '@/string';
 
 export default {
     regexp,
@@ -15,5 +16,6 @@ export default {
     location,
     logger,
     type,
-    util
+    util,
+    string
 };

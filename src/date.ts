@@ -46,5 +46,21 @@ export default {
         }
 
         return `${number.getLen(minute, 2)}:${number.getLen(second, 2)}`;
+    },
+
+    /**
+     * 解析日期：2019-04-25 20:38:08
+     * 返回一个日期对象
+     */
+    parse(timeStr: string) {
+        //格式化，为了兼容Safari
+        let prePt: string[] = timeStr.replace(/[/:-\s]/g, ',').split(',');
+        let pt: number[] = [];
+
+        for (var i = 0; i < prePt.length; i++) {
+            pt[i] = parseInt(prePt[i]);
+        }
+
+        return new Date(pt[0], pt[1] - 1, pt[2], pt[3], pt[4], pt[5]);
     }
 };
